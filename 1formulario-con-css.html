@@ -1,0 +1,116 @@
+<!-- primer formulario con CSS -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Formulario con  CSS</title>
+    <style> /*ESTE ES EL INICIO DE CSS (se deben cargar primero los estilos por eso se pone en el head*/
+    body{
+        background-color: darkslategray;
+    }
+
+        *{ /* EL ATERISCO MODIFICA A TODOS LOS ARGUMENTOS DENTRO */
+            box-sizing: border-box; 
+        }
+
+        input[type=text], /*estilos en cascada*/
+        select,
+        textarea/*, button (es para que los mismo estilos se le apliquen al button)*/ {  /* este input cambia el estilo a todos los inputs, primer vistazo a CSS
+            para seleccionar un tipo de input es:[type="text"] */
+            width: 100%;
+            padding: 10px 10px;/*ancho del cuadro de texto del input(ancho ,espacio de la izquierda)*/
+           /* box-sizing:border-box ;*/ 
+            margin: 10px 5px ;  /* establece un margen con respecto a las etiquetas y los inputs (de manera 
+            vertical, horizonal)*/
+            border:3px solid blue ; /*le da margen a los cuadros de texto(ancho del margen, tipo de margen
+            color) */
+            border-radius: 5px 5px 5px 5px;/* hace redondas las esquinas del cuadro de texto( superior i,
+            superior d, inferior d, inferior i )*/
+            background-color: coral; /* cambia el color de los cuadro de texto*/
+            color: crimson; /*color de la letra que escribe*/
+            /*background-image:url("aqui va la imagen") ;*/
+            resize: vertical; /*  */
+
+
+        }
+        ::placeholder{ /*es una sub clase del input por eso los dos puntos*/
+            color:blue ;/*color de las letras del cuadro de texto*/
+           /*los dos punto :: indican que es un pseudo elemento en CSS*/     
+
+        }
+        label{
+            padding: 12px 12px 12px  0;
+            display: block; /* ejecuta el padding*/
+            margin: 10px 20px;
+        }
+        select{ /*el select ya esta arriba pero aqui se ponen caracterisicas unicas*/
+            /* culaquier cambio que se le haga al select, la cascada lo cambiara solo para select*/
+            height: 50px;
+         
+           
+        }
+        button{
+            background-color: cornflowerblue;
+            border: none; /* quita los bordes*/
+            color: #dc143c;/*color de la letra*/
+            padding: 10px 10px; /* margen interno (vertical, horizontal)*/
+            text-decoration: none;
+            margin: 10px 5px;
+            cursor: pointer; /*el cursor cambia a la manita*/
+            
+        }
+        button:hover{ /*cambia el color del boton cuando se pasa el cursor*/
+            background-color: darkkhaki;
+        }
+
+        
+        input:focus{ /* estilo de los cuadros de texto cuando se pone el cursor ahi*/
+            border: 2px solid gray;
+            background-color:seagreen ;
+
+        }
+        .container{ /* con el punto se indica que es una clase fuera del html*/
+            border-radius: 4px;
+            background-color: darkseagreen;
+            padding: 25px;
+            width: 500px;
+            margin: auto;
+        }
+       
+    
+       
+    </style>
+
+</head>
+<body>
+    <h1>Forumulario con CSS</h1>
+    <div class="container"> <!--es una clase para que se vea mas bonito, se usa desde que salio boostrap -->
+        <!-- action nos lleva al link que querramos -->
+        <form action="http://google.com" method="post" enctype="multipart/form-data">
+        <!-- el atributo name se recive como una variable y el atributo id es para referenciarlo desde otra
+        parte del codigo-->
+        <label for="nombre"> nombre </label> <!-- en el for se llama al input con el nombre del id -->
+        <input type="text" name="nombre" id="nombre" placeholder="escribe tu nombre" required /> <br><!-- "placeholder 
+            escribe dentro del cuadro del input "-->   <!-- REQUIRED hace que se sean obligatorio llenar los campos-->
+        <label for="apellido"> apellido </label>
+        <input type="text" name="apellido" id="apellido" placeholder="escribe tu apellido" required /><br>
+        <label for="pais">País</label> 
+        <select name="pais "id="pais " required> <!-- hace que se puedan seleccionar las opciones-->
+            <option disabled hidden>Seleccione</option><!-- disable hidden no muestra esta opcion -->
+            <option>Mexico</option>
+            <option>Colombia</option>
+            <option>Ecuador</option>
+            <option>Canada</option>
+        </select>
+        <!-- BOTON PARA ENVIAR EL FORMULARIO -->
+        <!-- con input-->
+        <!--<input type="submit" value="enviar"/>-->
+        <!-- con button-->
+        <button type="submit"> Enviar </button> 
+        </form>
+        
+    </div>
+</body>
